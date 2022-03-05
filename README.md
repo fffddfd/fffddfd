@@ -1,10 +1,10 @@
-if game.CoreGui:FindFirstChild("MinhtsIsGay") then
+if game.CoreGui:FindFirstChild("MinhIsGay") then
     game.CoreGui.MarkBeatsIsGay:Destroy()
 end
 game:GetService("UserInputService").InputBegan:connect(
     function(key, gpe)
         if key.KeyCode == Enum.KeyCode.RightControl then
-            game.CoreGui.MarkBeatsIsGay.Enabled = not game.CoreGui.MarkBeatsIsGay.Enabled
+            game.CoreGui.MinhIsGay.Enabled = not game.CoreGui.MinhIsGay.Enabled
         end
     end
 )
@@ -19,8 +19,8 @@ local Mouse = LocalPlayer:GetMouse()
 coroutine.wrap(
 	function()
 		while wait() do
-			DarkLib.RainbowColorValue = MinhLib.RainbowColorValue + 1 / 255
-			DarkLib.HueSelectionPosition = DarkLib.HueSelectionPosition + 1
+			MinhLib.RainbowColorValue = MinhLib.RainbowColorValue + 1 / 255
+			MinhLib.HueSelectionPosition = MarkLib.HueSelectionPosition + 1
 
 			if MinhLib.RainbowColorValue >= 1 then
 				MinhLib.RainbowColorValue = 0
@@ -110,9 +110,9 @@ function Ripple(obj)
 end
 
 local MinhHubLib = Instance.new("ScreenGui")
-DarkHubLib.Name = "MarkBeatsIsGay"
+MinhHubLib.Name = "MinhIsGay"
 if syn and syn.protect_gui then
-    syn.protect_gui(DarkHubLib)
+    syn.protect_gui(MinhHubLib)
     MinhHubLib.Parent = game.CoreGui
 elseif gethui then
     MinhHubLib.Parent = gethui()
